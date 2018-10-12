@@ -1,0 +1,46 @@
+<div class=" text-center">
+  <img class="mb-4" src="/assets/images/logo.png" alt="" width="72" height="72">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.touched}"
+        formControlName="email" name="email" id="email" aria-describedby="emailHelpId" placeholder="Enter email"
+        autocomplete="email">
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': email.errors?.required,
+            'd-none': !email.errors?.required
+          }">
+        Email is required.
+      </p>
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': email.errors?.email,
+            'd-none': !email.errors?.email
+          }">
+        Invalid email.
+      </p>
+    </div>
+
+    <div class="form-group">
+      <input type="password" class="form-control" [ngClass]="{'is-invalid': password.invalid && password.touched}"
+        formControlName="password" name="password" id="password" placeholder="Enter password" autocomplete="current-password">
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': password.errors?.required,
+            'd-none': !password.errors?.required
+          }">
+        Password is required.
+      </p>
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback d-block': invalidCredentials,
+            'd-none': !invalidCredentials
+          }">
+        Invalid email or password.
+      </p>
+      <p class="form-text d-none" [ngClass]="{
+          'invalid-feedback d-block': errMsg
+        }">
+        {{ errMsg }}
+      </p>
+    </div>
+    <button (click)="handleSubmit()" type="button" class="btn btn-success btn-lg btn-block" [disabled]="password.invalid || email.invalid">Login</button>
+  </form>
+
+</div>

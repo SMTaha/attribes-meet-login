@@ -1,0 +1,82 @@
+<div class=" text-center">
+  <img class="mb-4" src="/assets/images/logo.png" alt="" width="72" height="72">
+  <form [formGroup]="form">
+    <div class="form-group">
+      <!-- First name -->
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': first_name.invalid && first_name.touched}"
+        formControlName="first_name" name="first_name" id="first_name" placeholder="Enter your first name" autocomplete="email">
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': first_name.errors?.required,
+            'd-none': !first_name.errors?.required
+          }">
+        First name is required.
+      </p>
+    </div>
+    <!--/ First name -->
+    <!-- Last name -->
+    <div class="form-group">
+      <input type="text" class="form-control" [ngClass]="{'is-invalid': last_name.invalid && last_name.touched}"
+        formControlName="last_name" name="last_name" id="last_name" placeholder="Enter your last name" autocomplete="email">
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': last_name.errors?.required,
+            'd-none': !last_name.errors?.required
+          }">
+        Last name is required.
+      </p>
+    </div>
+    <!--/ Last name -->
+    <!-- Email -->
+    <div class="form-group">
+      <input type="email" class="form-control" [ngClass]="{'is-invalid': email.invalid && email.touched}"
+        formControlName="email" name="email" id="email" placeholder="Enter email" autocomplete="email">
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': email.errors?.required,
+            'd-none': !email.errors?.required
+          }">
+        Email is required.
+      </p>
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': email.errors?.email,
+            'd-none': !email.errors?.email
+          }">
+        Invalid email.
+      </p>
+    </div>
+    <!--/ Email -->
+    <!-- Password -->
+    <div class="form-group">
+      <input type="password" class="form-control" [ngClass]="{'is-invalid': password.invalid && password.touched}"
+        formControlName="password" name="password" id="password" placeholder="Enter password" autocomplete="current-password">
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': password.errors?.required,
+            'd-none': !password.errors?.required
+          }">
+        Password is required.
+      </p>
+    </div>
+    <!--/ Password -->
+    <!-- Confirm Password -->
+    <div class="form-group">
+      <input type="password" class="form-control" [ngClass]="{'is-invalid': confirm_password.invalid && confirm_password.touched}"
+        formControlName="confirm_password" name="confirm_password" id="confirm_password" placeholder="Enter password again"
+        autocomplete="">
+      <p class="form-text d-none" [ngClass]="{
+            'invalid-feedback': confirm_password.errors?.required,
+            'd-none': !confirm_password.errors?.required
+          }">
+        Confirm Password is required.
+      </p>
+
+      <p class="form-text" [ngClass]="{
+            'invalid-feedback': errMsg,
+            'd-block': errMsg
+          }">
+        {{ errMsg }}
+      </p>
+    </div>
+    <!--/ Confirm Password -->
+    <button (click)="handleSubmit()" type="button" class="btn btn-success btn-lg btn-block">Signup</button>
+    <small class="text-dark">Already have an account? <a [routerLink]="[ '/login' ]" class="text-warning">Login here</a></small>
+  </form>
+
+</div>
