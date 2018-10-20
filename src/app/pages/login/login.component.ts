@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       if (res['error'] !== 'Login success') {
         this.errMsg = res['error'] as string;
       } else {
-        window.location.href = 'http://www.google.com';
+        window.location.href = 'https://meet.attribes.com';
       }
     });
   }
