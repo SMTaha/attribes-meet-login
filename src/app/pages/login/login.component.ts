@@ -11,7 +11,7 @@ export class LoginComponent implements OnInit {
   errMsg: string;
   form: FormGroup;
   invalidCredentials = false;
-  constructor(private formBuilder: FormBuilder, private router: Router, private location: Location private loginService : LoginService) {}
+  constructor(private formBuilder: FormBuilder, private router: Router, private location: Location, private loginService: LoginService) {}
 
   ngOnInit() {
     this.form = this
@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
       if (res['error'] !== 'Login success') {
         this.errMsg = res['error'] as string;
       } else {
-        window.location.href = ('www.google.com');
+        window.location.href = 'http://www.google.com';
       }
     });
   }

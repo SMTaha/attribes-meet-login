@@ -41,6 +41,7 @@
       </p>
     </div>
     <button (click)="handleSubmit()" type="button" class="btn btn-success btn-lg btn-block" [disabled]="password.invalid || email.invalid">Login</button>
+    <small class="text-dark">Do not have an account? <a [routerLink]="[ '/signup' ]" class="text-warning">Signup here</a></small>
   </form>
 
 </div>
