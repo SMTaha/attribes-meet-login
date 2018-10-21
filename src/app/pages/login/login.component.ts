@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
         this.errMsg = res['error'] as string;
       } else {
         window.location.href = 'https://meet.attribes.com';
+        localStorage.setItem('token', Math.random().toString(36).split('.').join(','));
       }
     });
   }
