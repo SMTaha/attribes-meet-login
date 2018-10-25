@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  baseURL: 'localhost:3000'
+  baseURL: 'http://meet.attribes.com:3000'
 };
